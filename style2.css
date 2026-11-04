@@ -98,11 +98,46 @@
     }
     #logo{
     width: 120px;
-    height: 40px;
+    height: 80px;
     display: flex;
     margin-right: 151px;
     
 }
 p{
   color: white;
+}
+header button{
+  background-color: #e84910;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* Estilos padrão (para telas maiores / Desktop) */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.coluna {
+  width: 50%;
+}
+
+/* Regras para celulares e tablets (até 768px) */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    flex-direction: column; /* Transforma as colunas em uma pilha vertical */
+    padding: 0 16px;
+  }
+
+  .coluna {
+    width: 100%; /* Ocupa a largura total da tela */
+  }
 }
