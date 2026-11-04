@@ -1,61 +1,76 @@
-/* --- ESTILOS GERAIS & RESET --- */
+/* --- RESET & GERAL --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
 body {
     background-color: #f0f0f0;
+    background-image: url('101_54768-455.avif');
+    background-size: cover;
+    background-position: center;
     font-family: Arial, sans-serif;
     color: #333333;
-    background-image: url('101_54768-455.avif');
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
+
+img { max-width: 100%; height: auto; }
 
 /* --- HEADER & NAVEGAÇÃO --- */
 header {
     background: linear-gradient(#4b7ff1, rgba(30, 30, 206, 0.95));
-    padding: 20px 10px;
+    padding: 20px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 10px;
 }
 
 #logo {
-    width: 120px;
+    width: 100px;
     height: auto;
-    margin-bottom: 10px;
 }
 
 header h1 {
     color: #e84910;
     font-weight: 400;
-    margin: 10px 0 20px 0;
-    font-size: clamp(30px, 8vw, 46px); /* Diminui o texto automaticamente em telas pequenas */
+    margin: 0;
+    font-size: clamp(28px, 8vw, 46px);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #menu {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
 }
 
 #menu2 {
-    background-color: #b1c4f7;  
+    background-color: #b1c4f7;
     border-radius: 10px;
     border: 2px solid blue;
-    padding: 0;
+    padding: 4px;
     margin: 0;
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    height: 50px;
+    gap: 4px;
+    min-height: 50px;
 }
 
-#menu a { 
+#menu li { flex: 1 1 auto; text-align: center; }
+
+#menu a {
+    display: block;
     text-decoration: none;
-    color: #0213ac; /* Mudado para azul para dar contraste com o fundo claro do menu */
+    color: #0213ac;
     font-weight: bold;
     transition: 0.3s;
-    padding: 5px 10px;
+    padding: 10px 12px; /* área de toque confortável */
+    font-size: clamp(14px, 4vw, 16px);
 }
 
 #menu a:hover {
@@ -63,28 +78,37 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+/* --- CONTEÚDO PRINCIPAL --- */
 main {
-    background-color: #ffffff; 
-    max-width: 800px;         
-    margin: 20px auto;        
-    padding: 20px;            
-    border: 2px solid #164194; 
-    border-radius: 10px;      
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    box-sizing: border-box;
-    width: 90%; /* Garante que o bloco não grude nas bordas do celular */
+    background-color: #ffffff;
+    max-width: 800px;
+    width: calc(100% - 24px);
+    margin: 16px auto;
+    padding: 16px;
+    border: 2px solid #164194;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+main h2 { font-size: clamp(22px, 6vw, 28px); }
 
 main p {
     font-weight: bold;
     font-size: clamp(16px, 4vw, 23px);
+    line-height: 1.4;
+    overflow-wrap: break-word;
 }
 
-/* Lista de máquinas e imagens centralizadas */
+section[id] { scroll-margin-top: 12px; }
+
+/* Lista de máquinas */
 #maquinas ul {
     padding: 0;
+    margin: 0;
     list-style: none;
+}
+
+#maquinas li {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,13 +119,13 @@ main p {
     width: 100%;
 }
 
-ul img {
+#maquinas img {
     width: 100%;
-    max-width: 450px; /* Não deixa a foto estourar no PC */
+    max-width: 450px;
     height: auto;
     border-radius: 10px;
     border: 2px solid #e84910;
-    margin: 15px 0;
+    margin: 10px 0 15px;
 }
 
 hr {
@@ -111,18 +135,17 @@ hr {
     margin: 20px 0;
 }
 
-/* --- FORMULÁRIO RESPONSIVO --- */
+/* --- FORMULÁRIO --- */
 form {
     background-color: rgb(102, 148, 240);
     display: flex;
     flex-direction: column;
-    margin: 30px auto; /* Centraliza automaticamente em qualquer tela */
+    margin: 24px auto;
     border: 2px solid blue;
-    padding: 20px;
+    padding: 16px;
     width: 100%;
-    max-width: 400px; /* Limita o tamanho no PC */
+    max-width: 400px;
     border-radius: 10px;
-    box-sizing: border-box;
 }
 
 form label {
@@ -134,16 +157,14 @@ form label {
 
 form input, form textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    font-size: 16px; /* evita zoom automático no iPhone */
+    font-family: inherit;
 }
 
-form textarea {
-    height: 100px;
-    resize: vertical;
-}
+form textarea { height: 100px; resize: vertical; }
 
 form button {
     padding: 12px 20px;
@@ -152,42 +173,34 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 18px;
     font-weight: bold;
     font-size: 16px;
 }
 
-form button:hover {
-    background-color: #eb8b69;
-}
+form button:hover { background-color: #eb8b69; }
 
 /* --- FOOTER --- */
 footer {
     background: linear-gradient(#0213ac, rgba(44, 44, 250, 0.95));
-    padding: 20px;
+    padding: 20px 16px;
     color: #ffffff;
     text-align: center;
+    margin-top: 24px;
 }
 
-/* --- COMPONENTES EXTRA (PREVENÇÃO DE QUEBRAS) --- */
-iframe {
-    max-width: 100%;
-    height: auto;
-}
+footer p { margin: 0; font-size: clamp(13px, 3.5vw, 16px); }
 
-/* --- MEDIA QUERY (Para telas grandes / Desktop) --- */
+iframe { max-width: 100%; }
+
+/* --- DESKTOP --- */
 @media screen and (min-width: 768px) {
     header {
         flex-direction: row;
         justify-content: space-between;
         padding: 10px 40px;
     }
-    
-    #logo {
-        margin-bottom: 0;
-    }
-    
-    header h1 {
-        margin: 0;
-    }
+    #logo { width: 120px; }
+    main { width: 90%; padding: 20px; margin: 20px auto; }
+    #menu2 { height: 50px; flex-wrap: nowrap; }
 }
