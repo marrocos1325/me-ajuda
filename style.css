@@ -1,187 +1,193 @@
-body{
+/* --- ESTILOS GERAIS & RESET --- */
+body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     color: #333333;
     background-image: url('101_54768-455.avif');
-}
-header{
-    background: linear-gradient(#4b7ff1, rgba(30, 30, 206, 0.95));
-    margin: -10px;
-}
-main {
-    display: block;
-    background-color: #ffffff; 
-    max-width: 800px;         
-    margin: 40px auto;        
-    padding: 20px;            
-    border: 2px solid #164194; 
-    border-radius: 10px;      
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-#menu{
-    background-color: #164194;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    background: linear-gradient(#0213ac, rgba(44, 44, 250, 0.95));
-    background-size: cover;
-    color : #ffffff;
-    display: flex;
-}
-#logo{
-    width: 120px;
-    height: 80px;
-    display: flex;
-    margin-right: 151px;
-    
-}
-ul img{
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-    border: 2px solid #e84910;
-    margin-left: 201px;
+    margin: 0;
+    padding: 0;
 }
 
-#menu2{
-    background-color: #b1c4f7;  
-    margin: 7px;
-    border-radius: 10px;
-    width: 200px;
-    margin-left: 6px;
-    text-align: center;   
+/* --- HEADER & NAVEGAÇÃO --- */
+header {
+    background: linear-gradient(#4b7ff1, rgba(30, 30, 206, 0.95));
+    padding: 20px 10px;
     display: flex;
-    height: 40px;
-    padding: 10px;
-    width: 350px;
-    border: 2px solid blue;
-    
-}
-#menu2 a{
-    margin: 0 15px;
-    padding: 10px;
-}
-header h1 {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+}
+
+#logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+header h1 {
     color: #e84910;
     font-weight: 400;
-    margin-bottom: 15px;
-    font-size: 46px;
+    margin: 10px 0 20px 0;
+    font-size: clamp(30px, 8vw, 46px); /* Diminui o texto automaticamente em telas pequenas */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
+#menu {
+    width: 100%;
+    max-width: 400px;
+}
+
+#menu2 {
+    background-color: #b1c4f7;  
+    border-radius: 10px;
+    border: 2px solid blue;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
 #menu a { 
     text-decoration: none;
-    color: #ffffff;
+    color: #0213ac; /* Mudado para azul para dar contraste com o fundo claro do menu */
     font-weight: bold;
     transition: 0.3s;
+    padding: 5px 10px;
 }
+
 #menu a:hover {
     color: #e84910;
     transform: scale(1.05);
 }
-#menu {
-        flex-direction: column;
-        align-items: center;
-    
-    }
-form label {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #000;
 
+/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+main {
+    background-color: #ffffff; 
+    max-width: 800px;         
+    margin: 20px auto;        
+    padding: 20px;            
+    border: 2px solid #164194; 
+    border-radius: 10px;      
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box;
+    width: 90%; /* Garante que o bloco não grude nas bordas do celular */
 }
-form button {
-    padding: 10px 20px;
-    background-color: #e84910;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+
+main p {
+    font-weight: bold;
+    font-size: clamp(16px, 4vw, 23px);
 }
-form button:hover {
-    background-color: #eb8b69;
-}
-form{
-    background-color: rgb(102, 148, 240) ;
+
+/* Lista de máquinas e imagens centralizadas */
+#maquinas ul {
+    padding: 0;
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left:180px;
-    margin-top: 25px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    height: 400px;
-    width: 400px;
-    border-radius: 10px;
-    border: 2px solid blue;
 }
-footer{
-    background-color: #164194 ;
-    background: linear-gradient(#0213ac, rgba(44, 44, 250, 0.95));
-    padding: 40px;
-    color: #ffffffff;
+
+#maquinas p {
     text-align: center;
-    margin: -10px;
-    
+    width: 100%;
 }
-#redirecaof{
-    padding: 20px 55px;
+
+ul img {
+    width: 100%;
+    max-width: 450px; /* Não deixa a foto estourar no PC */
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #e84910;
+    margin: 15px 0;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* --- FORMULÁRIO RESPONSIVO --- */
+form {
+    background-color: rgb(102, 148, 240);
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto; /* Centraliza automaticamente em qualquer tela */
+    border: 2px solid blue;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Limita o tamanho no PC */
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+form label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    padding: 12px 20px;
     background-color: #e84910;
     color: white;
     border: none;
     border-radius: 5px;
-    border-color: #000;
     cursor: pointer;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-left: 325px;
-    transition:0.3s;  
-    font-size: 21px
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
 }
-#redirecaof:hover{
+
+form button:hover {
     background-color: #eb8b69;
 }
-.preview-box {
-    width: 100%;
-    height: 250px;
-    background: #ddd;
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-iframe{
-    padding: 100px;
-    height: 500px;
-    width: 500px;
-}
-main p{
-    font-weight: bold;
-    font-size: 23px
-}
-/* Estilos padrão (para telas maiores / Desktop) */
-.container {
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
+
+/* --- FOOTER --- */
+footer {
+    background: linear-gradient(#0213ac, rgba(44, 44, 250, 0.95));
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
 }
 
-.coluna {
-    width: 50%;
+/* --- COMPONENTES EXTRA (PREVENÇÃO DE QUEBRAS) --- */
+iframe {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Regras para celulares e tablets (até 768px) */
-@media screen and (max-width: 768px) {
-.container {
-    width: 100%;
-    flex-direction: column; /* Transforma as colunas em uma pilha vertical */
-    padding: 0 16px;
-}
-
-.coluna {
-    width: 100%; /* Ocupa a largura total da tela */
-}
+/* --- MEDIA QUERY (Para telas grandes / Desktop) --- */
+@media screen and (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 40px;
+    }
+    
+    #logo {
+        margin-bottom: 0;
+    }
+    
+    header h1 {
+        margin: 0;
+    }
 }
